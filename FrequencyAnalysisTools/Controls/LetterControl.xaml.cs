@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FrequencyAnalysisTools.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,9 @@ namespace FrequencyAnalysisTools
     /// </summary>
     public partial class LetterControl : UserControl
     {
+
+        public event Action<string, string> LetterChanged;
+
         public LetterControl()
         {
             InitializeComponent();
@@ -31,6 +35,11 @@ namespace FrequencyAnalysisTools
             if (lastText is null && sender is TextBox box)
             {
                 lastText = box.Text;
+                if (DataContext is LetterContext c)
+                {
+                    c.Mapping = lastText;
+                    LetterChanged?.Invoke(c.Letter, lastText);
+                }
             }
             else
             {

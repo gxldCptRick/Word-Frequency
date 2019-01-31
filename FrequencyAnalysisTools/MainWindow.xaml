@@ -5,50 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FrequencyAnalysisTools"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <!--<RowDefinition Height=".07*"/>-->
+            <RowDefinition Height=".9*"/>
         </Grid.RowDefinitions>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height=".2*"/>
-                <RowDefinition Height=".8*"/>
-            </Grid.RowDefinitions>
-            <Label Content="Cypher Text:"></Label>
-            <Label Name="Count" Content="blank" HorizontalAlignment="Right"></Label>
-            <ScrollViewer Grid.Row="1">
-                <RichTextBox Background="NavajoWhite" FontSize="25" Name="CypherText" Margin="11" FontFamily="Consolas" TextChanged="CypherText_TextChanged"></RichTextBox>
-            </ScrollViewer>
-        </Grid>
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height=".2*"/>
-                <RowDefinition Height=".8*"/>
-            </Grid.RowDefinitions>
-            <Label Content="Plain Text:"></Label>
-            <ScrollViewer Grid.Row="1">
-                <RichTextBox FontSize="25" IsReadOnly="True"  Background="NavajoWhite" Name="PlainText" Margin="11" FontFamily="Consolas"></RichTextBox>
-            </ScrollViewer>
-        </Grid>
-        <Grid Grid.Row="2">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button Content="Subtitute Letters" Click="SubstituteLettersClicked"/>
-            <Button Content="Reset" Grid.Column="1" Click="ResetClicked"/>
-            <Button Content="Generate Frequencies" Grid.Column="2" Click="GenerateFrequenciesClicked"/>
-            <ScrollViewer Grid.Row="1" Grid.ColumnSpan="3">
-                <UniformGrid Rows="1" Background="RosyBrown" Name="Frequencies"/>
-            </ScrollViewer>
-        </Grid>
+        <!--<Menu>
+            <MenuItem Header="_Mono" Click="MonoClicked"/>
+            <MenuItem Header="_Poly" Click="PolyClicked"/>
+        </Menu>-->
+        <Frame Grid.Row="1" Name="BestFrame" Background="Yellow" >
+        </Frame>
     </Grid>
 </Window>

@@ -1,0 +1,58 @@
+﻿<Page x:Class="FrequencyAnalysisTools.Pages.MonoalpabeticTool"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FrequencyAnalysisTools.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MonoalpabeticTool">
+
+    <Grid Background="silver">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".4*"/>
+            <RowDefinition Height=".4*"/>
+            <RowDefinition Height=".1*"/>
+            <RowDefinition Height=".3*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".2*"/>
+                <RowDefinition Height=".8*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Cypher Text:"></Label>
+            <Label Name="Count" Content="blank" HorizontalAlignment="Right"></Label>
+            <ScrollViewer Name="CypherTextScroll" Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <RichTextBox Background="NavajoWhite" FontSize="25" Name="CypherText" Margin="11" FontFamily="Consolas" TextChanged="CypherText_TextChanged"></RichTextBox>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".2*"/>
+                <RowDefinition Height=".8*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Plain Text:"></Label>
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <RichTextBox FontSize="25" IsReadOnly="True"  Background="NavajoWhite" Name="PlainText" Margin="11" FontFamily="Consolas"></RichTextBox>
+            </ScrollViewer>
+        </Grid>
+        <Label Grid.Row="2" FontFamily="Consolas" Content="Alphabits" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Name="Alphabet"/>
+        <Grid Grid.Row="4">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Reset" Grid.Column="1" Click="ResetClicked" Margin="11"/>
+            <Button IsEnabled="False" Content="Generate Alphabits" Name="GenerateAlphabits" Grid.Column="2" Margin="11" Click="GenerateAlphabits_Click" />
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="4">
+                <UniformGrid Columns="26" Background="RosyBrown" Name="Frequencies"/>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>
